@@ -7,10 +7,8 @@ type Configuration struct {
 	RedisPort string
 }
 
-var Config Configuration
-
-func LoadConfig() {
-	Config = Configuration{
+func LoadConfig() *Configuration {
+	return &Configuration{
 		RedisHost: os.Getenv("REDIS_HOST"),
 		RedisPort: os.Getenv("REDIS_PORT"),
 	}

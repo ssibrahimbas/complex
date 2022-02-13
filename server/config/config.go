@@ -1,6 +1,9 @@
 package config
 
-import "os"
+import (
+	"fmt"
+	"os"
+)
 
 type Configuration struct {
 	RedisHost  string
@@ -14,10 +17,9 @@ type Configuration struct {
 	ServerPort string
 }
 
-var Config Configuration
-
-func LoadConfig() {
-	Config = Configuration{
+func LoadConfig() *Configuration {
+	fmt.Println(os.Getenv("PG_HOST"))
+	return &Configuration{
 		RedisHost:  os.Getenv("REDIS_HOST"),
 		RedisPort:  os.Getenv("REDIS_PORT"),
 		PgUser:     os.Getenv("PG_USER"),
